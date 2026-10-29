@@ -1322,6 +1322,12 @@ button[class*="delete" i],
     color: #e504fa !important;
     font-weight: bold !important;
 }
+/* Police Logo Size Increase */
+.topbar img {
+    width: 100px !important;
+    height: 100px !important;
+    object-fit: contain !important;
+}
 </style>
 </head>
 <body>
@@ -1408,8 +1414,16 @@ function cerLatest(r,n=3){return cerFor(r.pno).slice(0,n)}
 function cerLabel(c){return c?`${c.month} ${c.year}`:'—'}
 function yearRange(){let y=new Date().getFullYear();return [y-1,y]}
 function hasCerInRange(r){let [a,b]=yearRange();return cerFor(r.pno).some(c=>[a,b].includes(Number(c.year)))}
-function isNotAvailable(r){return isOfficeRole(r)&&hasCerInRange(r)&&latestCerStatus(r.pno)!=='NO'}
-function isAvailable(r){return isOfficeRole(r)&&(!hasCerInRange(r)||latestCerStatus(r.pno)==='NO')}
+function isNotAvailable(r) {
+    return !isExternal(r)
+        && !isHQ(r)
+        && hasCerInRange(r);
+}
+
+function isAvailable(r) {
+    return isExternal(r)
+        && !hasCerInRange(r);
+}
 function tabRecords(tab){if(tab==='dashboard')return records.filter(r=>!isHQ(r));if(tab==='cer')return records.filter(r=>cerFor(r.pno).length>0);if(tab==='office')return records.filter(r=>!isExternal(r)&&!isHQ(r)&&roleShort(r.role)!=='—');if(tab==='notavailable')return records.filter(isNotAvailable);if(tab==='available')return records.filter(isAvailable);if(tab==='hq')return records.filter(isHQ);return records}
 const TITLES={dashboard:['Dashboard Overview','Personnel strength and C.E.R. status across police stations.'],cer:['C.E.R. Records','Personnel who have performed C.E.R. at least once.'],office:['Office and Other','Personnel in office and non-external duty roles.'],notavailable:['Not Available','Office-role personnel with C.E.R. activity in the current two-year reporting window.'],available:['Available','Office-role personnel with no C.E.R. activity in the current two-year reporting window.'],hq:['Office and Line','Personnel assigned to headquarters units, excluded from the main dashboard.']};
 function render(){let t=TITLES[currentTab];$('pageTitle').textContent=t[0];$('pageSubtitle').textContent=t[1];renderActions();renderContent()}

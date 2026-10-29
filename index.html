@@ -367,7 +367,7 @@ width: 100px !important;
 /* Personnel Details heading */
 #detailsPanel .panel-head h3 {
     font-family: "Times New Roman", serif !important;
-    font-size: 35px !important;
+    font-size: 30px !important;
     font-weight: bold !important;
     color: red !important;
     display: block !important;
@@ -378,7 +378,7 @@ width: 100px !important;
 .panel:has(table.rank-summary) .panel-head h3 {
     color: #003366 !important;
     font-family: Arial, sans-serif !important;
-    font-size: 35px !important;
+    font-size: 25px !important;
     font-weight: 700 !important;
 }
 /* Responsive tables without shrinking columns */
@@ -414,6 +414,604 @@ width: 100px !important;
 .personnel-table td {
     white-space: normal;
 }
+/* Print Layout Fix */
+@media print {
+
+    @page {
+        size: A4 landscape;
+        margin: 8mm;
+    }
+
+    body {
+        margin: 0 !important;
+        padding: 0 !important;
+        background: #fff !important;
+        zoom: 100%;
+    }
+
+    .sidebar,
+    .topbar,
+    .no-print,
+    button {
+        display: none !important;
+    }
+
+    .main-content,
+    .content,
+    .dashboard,
+    .panel {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 5px !important;
+        overflow: visible !important;
+        box-shadow: none !important;
+    }
+
+    .table-wrap {
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow: visible !important;
+        height: auto !important;
+        max-height: none !important;
+    }
+
+    .rank-summary,
+    .personnel-table {
+        width: 100% !important;
+        min-width: 0 !important;
+        table-layout: auto !important;
+        border-collapse: collapse !important;
+    }
+
+    .rank-summary th,
+    .rank-summary td,
+    .personnel-table th,
+    .personnel-table td {
+        font-size: 12px !important;
+        padding: 3px !important;
+        white-space: normal !important;
+        overflow-wrap: anywhere;
+        color: #000 !important;
+        border: 1px solid #777 !important;
+    }
+.rank-summary th,
+.personnel-table th {
+    font-size: 12px !important;
+    font-weight: bold !important;
+}
+    .panel-head h3 {
+        font-size: 14px !important;
+        color: #000 !important;
+    }
+
+    tr {
+        break-inside: avoid;
+    }
+}
+/* Rank Block Design */
+.stat-card {
+    font-family: "Times New Roman", serif !important;
+    background: #EAF2FF !important;
+    border: 1px solid #003366 !important;
+    border-radius: 12px !important;
+}
+
+/* Rank Name */
+.stat-card .stat-label {
+    font-family: "Times New Roman", serif !important;
+    color: #00172e !important;
+    font-size: 30px !important;
+    font-weight: bold !important;
+}
+
+/* Rank Number */
+.stat-card .stat-num {
+    font-family: "Times New Roman", serif !important;
+    color: #C00000 !important;
+    font-size: 45px !important;
+    font-weight: bold !important;
+}
+
+/* Personnel - View details */
+.stat-card .stat-foot {
+    font-family: "Times New Roman", serif !important;
+    color: #0400fa !important;
+    font-size: 40px !important;
+    font-weight: bold !important;
+}
+
+/* Rank Blocks: Remove Green Corner */
+.stat-card::before,
+.stat-card::after {
+    display: none !important;
+    content: none !important;
+}
+
+.stat-card {
+    background: #eef1f5 !important;
+}
+/* Remark and Actions Column Spacing */
+.personnel-table {
+    border-collapse: collapse !important;
+    border-spacing: 0 !important;
+}
+
+/* Fix Remark and Actions column spacing */
+.personnel-table {
+    table-layout: auto !important;
+    border-collapse: collapse !important;
+}
+
+.personnel-table th:nth-child(13),
+.personnel-table td:nth-child(13) {
+    width: 55px !important;
+    min-width: 55px !important;
+    padding-left: 3px !important;
+    padding-right: 3px !important;
+    overflow-wrap: break-word;
+}
+
+.personnel-table th:nth-child(14),
+.personnel-table td:nth-child(14) {
+    width: 70px !important;
+    min-width: 70px !important;
+    white-space: nowrap !important;
+    padding: 4px !important;
+}
+
+.personnel-table td:nth-child(14) button {
+    max-width: 100% !important;
+    white-space: nowrap !important;
+    word-break: normal !important;
+}
+/* All tabs: Full-width Personnel Details */
+#detailsPanel {
+width: 100% !important;
+max-width: 100% !important;
+box-sizing: border-box !important;
+}
+
+#detailsPanel .table-wrap {
+width: 100% !important;
+max-width: 100% !important;
+overflow-x: auto !important;
+}
+
+#detailsPanel .personnel-table {
+width: 100% !important;
+min-width: 100% !important;
+table-layout: auto !important;
+border-collapse: collapse !important;
+}
+
+#detailsPanel .personnel-table th,
+#detailsPanel .personnel-table td {
+font-family: "Times New Roman", serif !important;
+box-sizing: border-box !important;
+padding: 8px 5px !important;
+text-align: center !important;
+vertical-align: middle !important;
+}
+
+/* Keep Actions buttons visible */
+#detailsPanel .personnel-table th:last-child,
+#detailsPanel .personnel-table td:last-child {
+min-width: 85px !important;
+white-space: nowrap !important;
+}
+/* All Tabs: Filter Font and Full Width */
+#dashboardContent .filters,
+#dashboardContent .filter-bar,
+#dashboardContent .filter-panel,
+#dashboardContent .search-filters {
+width: 100% !important;
+max-width: 100% !important;
+box-sizing: border-box !important;
+font-family: "Times New Roman", serif !important;
+color: #003366 !important;
+}
+
+/* Filter Labels */
+#dashboardContent .filters label,
+#dashboardContent .filter-bar label,
+#dashboardContent .filter-panel label,
+#dashboardContent .search-filters label {
+font-family: "Times New Roman", serif !important;
+font-size: 18px !important;
+font-weight: bold !important;
+color: #003366 !important;
+}
+
+/* Filter Inputs and Dropdowns */
+#dashboardContent .filters input,
+#dashboardContent .filters select,
+#dashboardContent .filter-bar input,
+#dashboardContent .filter-bar select,
+#dashboardContent .filter-panel input,
+#dashboardContent .filter-panel select,
+#dashboardContent .search-filters input,
+#dashboardContent .search-filters select {
+font-family: "Times New Roman", serif !important;
+font-size: 18px !important;
+color: #222222 !important;
+box-sizing: border-box !important;
+}
+/* ALL TABS: Filter bar full width */
+#pageContent .filters,
+#pageContent .toolbar,
+#pageContent .filter-bar,
+#pageContent .filter-panel,
+#pageContent .search-filters,
+#dashboardContent .filters,
+#dashboardContent .toolbar,
+#dashboardContent .filter-bar,
+#dashboardContent .filter-panel,
+#dashboardContent .search-filters {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    font-family: "Times New Roman", serif !important;
+    font-size: 20px !important;
+    color: #003366 !important;
+    gap: 8px !important;
+}
+
+/* Filter labels */
+#pageContent .filters label,
+#pageContent .toolbar label,
+#pageContent .filter-bar label,
+#pageContent .filter-panel label,
+#pageContent .search-filters label,
+#dashboardContent .filters label,
+#dashboardContent .toolbar label,
+#dashboardContent .filter-bar label,
+#dashboardContent .filter-panel label,
+#dashboardContent .search-filters label {
+    font-family: "Times New Roman", serif !important;
+    font-size: 25px !important;
+    font-weight: bold !important;
+    color: #003366 !important;
+}
+
+/* Filter inputs and dropdowns */
+#pageContent .filters input,
+#pageContent .filters select,
+#pageContent .toolbar input,
+#pageContent .toolbar select,
+#pageContent .filter-bar input,
+#pageContent .filter-bar select,
+#pageContent .filter-panel input,
+#pageContent .filter-panel select,
+#pageContent .search-filters input,
+#pageContent .search-filters select,
+#dashboardContent .filters input,
+#dashboardContent .filters select,
+#dashboardContent .toolbar input,
+#dashboardContent .toolbar select,
+#dashboardContent .filter-bar input,
+#dashboardContent .filter-bar select,
+#dashboardContent .filter-panel input,
+#dashboardContent .filter-panel select,
+#dashboardContent .search-filters input,
+#dashboardContent .search-filters select {
+    font-family: "Times New Roman", serif !important;
+    font-size: 25px !important;
+    color: #222222 !important;
+    box-sizing: border-box !important;
+}
+/* All tabs: Full width responsive layout */
+#pageContent,
+#dashboardContent {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+}
+
+#pageContent .filters,
+#pageContent .toolbar,
+#pageContent .filter-bar,
+#pageContent .filter-panel,
+#pageContent .search-filters,
+#dashboardContent .filters,
+#dashboardContent .toolbar,
+#dashboardContent .filter-bar,
+#dashboardContent .filter-panel,
+#dashboardContent .search-filters {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    gap: 8px !important;
+}
+
+#pageContent .filters > *,
+#pageContent .toolbar > *,
+#pageContent .filter-bar > *,
+#pageContent .filter-panel > *,
+#pageContent .search-filters > *,
+#dashboardContent .filters > *,
+#dashboardContent .toolbar > *,
+#dashboardContent .filter-bar > *,
+#dashboardContent .filter-panel > *,
+#dashboardContent .search-filters > * {
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+    #pageContent .filters,
+    #pageContent .toolbar,
+    #pageContent .filter-bar,
+    #pageContent .filter-panel,
+    #pageContent .search-filters,
+    #dashboardContent .filters,
+    #dashboardContent .toolbar,
+    #dashboardContent .filter-bar,
+    #dashboardContent .filter-panel,
+    #dashboardContent .search-filters {
+        flex-wrap: wrap !important;
+    }
+}
+/* All tabs: Full-width filter layout */
+#pageContent .filters,
+#dashboardContent .filters {
+display: block !important;
+width: 100% !important;
+max-width: 100% !important;
+min-width: 0 !important;
+box-sizing: border-box !important;
+}
+
+#pageContent .filters .toolbar,
+#dashboardContent .filters .toolbar {
+display: flex !important;
+flex-wrap: wrap !important;
+align-items: flex-end !important;
+width: 100% !important;
+max-width: 100% !important;
+min-width: 0 !important;
+box-sizing: border-box !important;
+gap: 12px !important;
+}
+
+#pageContent .filters .toolbar label,
+#dashboardContent .filters .toolbar label {
+flex: 1 1 140px !important;
+min-width: 120px !important;
+box-sizing: border-box !important;
+font-family: "Times New Roman", serif !important;
+font-size: 16px !important;
+color: #003366 !important;
+}
+
+#pageContent .filters .toolbar input,
+#pageContent .filters .toolbar select,
+#dashboardContent .filters .toolbar input,
+#dashboardContent .filters .toolbar select {
+display: block !important;
+width: 100% !important;
+max-width: 100% !important;
+min-width: 0 !important;
+box-sizing: border-box !important;
+font-family: "Times New Roman", serif !important;
+font-size: 15px !important;
+}
+
+#pageContent .filters .toolbar button,
+#dashboardContent .filters .toolbar button {
+flex: 0 0 auto !important;
+box-sizing: border-box !important;
+}
+
+@media (max-width: 768px) {
+#pageContent .filters .toolbar label,
+#dashboardContent .filters .toolbar label {
+flex: 1 1 100% !important;
+min-width: 0 !important;
+}
+}
+/* Role-wise Summary block size */
+#pageContent .panel:has(.role-summary),
+#dashboardContent .panel:has(.role-summary) {
+    width: 80% !important;
+    max-width: 80% !important;
+    margin: 0 auto !important;
+    padding: 8px !important;
+}
+/* Reduce Rank Summary Cards Size */
+#pageContent .stat-card,
+#dashboardContent .stat-card {
+min-height: 90px !important;
+padding: 10px 12px !important;
+box-sizing: border-box !important;
+}
+
+/* Reduce card heading */
+#pageContent .stat-card .stat-label,
+#dashboardContent .stat-card .stat-label {
+font-size: 32px !important;
+line-height: 1.2 !important;
+}
+
+/* Reduce card number */
+#pageContent .stat-card .stat-num,
+#dashboardContent .stat-card .stat-num {
+font-size: 32px !important;
+margin: 4px 0 !important;
+}
+
+/* Reduce card footer */
+#pageContent .stat-card .stat-foot,
+#dashboardContent .stat-card .stat-foot {
+font-size: 15px !important;
+}
+
+/* PRINT: Keep filters in one row like dashboard */
+@media print {
+    #pageContent .filters .toolbar,
+    #dashboardContent .filters .toolbar {
+        display: grid !important;
+        grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
+        align-items: end !important;
+        gap: 6px !important;
+        width: 100% !important;
+    }
+
+    #pageContent .filters label,
+    #dashboardContent .filters label {
+        min-width: 0 !important;
+        width: 100% !important;
+        margin: 0 !important;
+        font-size: 25px !important;
+    }
+
+    #pageContent .filters input,
+    #pageContent .filters select,
+    #dashboardContent .filters input,
+    #dashboardContent .filters select {
+        width: 100% !important;
+        min-width: 0 !important;
+        box-sizing: border-box !important;
+        font-size: 25px !important;
+        padding: 5px !important;
+    }
+}
+/* DESKTOP: Filter font size */
+@media screen {
+  #pageContent .filters label,
+  #pageContent .toolbar label,
+  #pageContent .filter-bar label,
+  #pageContent .filter-panel label,
+  #pageContent .search-filters label,
+  #dashboardContent .filters label,
+  #dashboardContent .toolbar label,
+  #dashboardContent .filter-bar label,
+  #dashboardContent .filter-panel label,
+  #dashboardContent .search-filters label {
+    font-size: 20px !important;
+    font-weight: bold !important;
+  }
+
+  #pageContent .filters input,
+  #pageContent .filters select,
+  #pageContent .toolbar input,
+  #pageContent .toolbar select,
+  #pageContent .filter-bar input,
+  #pageContent .filter-bar select,
+  #pageContent .filter-panel input,
+  #pageContent .filter-panel select,
+  #pageContent .search-filters input,
+  #pageContent .search-filters select,
+  #dashboardContent .filters input,
+  #dashboardContent .filters select,
+  #dashboardContent .toolbar input,
+  #dashboardContent .toolbar select,
+  #dashboardContent .filter-bar input,
+  #dashboardContent .filter-bar select,
+  #dashboardContent .filter-panel input,
+  #dashboardContent .filter-panel select,
+  #dashboardContent .search-filters input,
+  #dashboardContent .search-filters select {
+    font-size: 18px !important;
+  }
+}
+
+
+/* FINAL FIX: Desktop filter font and print layout */
+@media screen {
+  #pageContent .filters label,
+  #pageContent .toolbar label,
+  #pageContent .filter-bar label,
+  #pageContent .filter-panel label,
+  #pageContent .search-filters label,
+  #dashboardContent .filters label,
+  #dashboardContent .toolbar label,
+  #dashboardContent .filter-bar label,
+  #dashboardContent .filter-panel label,
+  #dashboardContent .search-filters label {
+    font-size: 20px !important;
+    font-weight: bold !important;
+  }
+  #pageContent .filters input, #pageContent .filters select,
+  #pageContent .toolbar input, #pageContent .toolbar select,
+  #pageContent .filter-bar input, #pageContent .filter-bar select,
+  #pageContent .filter-panel input, #pageContent .filter-panel select,
+  #pageContent .search-filters input, #pageContent .search-filters select,
+  #dashboardContent .filters input, #dashboardContent .filters select,
+  #dashboardContent .toolbar input, #dashboardContent .toolbar select,
+  #dashboardContent .filter-bar input, #dashboardContent .filter-bar select,
+  #dashboardContent .filter-panel input, #dashboardContent .filter-panel select,
+  #dashboardContent .search-filters input, #dashboardContent .search-filters select {
+    font-size: 18px !important;
+  }
+}
+
+@media print {
+  @page { size: A4 landscape; margin: 8mm; }
+  html, body { background: #fff !important; margin: 0 !important; padding: 0 !important; }
+  .topbar, .sidebar, .actions, .no-print, .footer, button { display: none !important; }
+  .main, .main-content, .content, .dashboard, #pageContent, #dashboardContent {
+    display: block !important; width: 100% !important; max-width: 100% !important;
+    margin: 0 !important; padding: 0 !important; overflow: visible !important;
+  }
+  /* Keep the filter panel visible and in one row, like the dashboard */
+  #pageContent .filters, #dashboardContent .filters,
+  #pageContent .filter-panel, #dashboardContent .filter-panel,
+  #pageContent .filter-bar, #dashboardContent .filter-bar,
+  #pageContent .search-filters, #dashboardContent .search-filters {
+    display: block !important; visibility: visible !important; width: 100% !important;
+    max-width: 100% !important; margin: 0 0 8px !important; padding: 6px !important;
+    box-sizing: border-box !important; overflow: visible !important;
+  }
+  #pageContent .filters .toolbar, #dashboardContent .filters .toolbar,
+  #pageContent .toolbar, #dashboardContent .toolbar {
+    display: grid !important; grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
+    gap: 6px !important; align-items: end !important; width: 100% !important;
+    max-width: 100% !important; margin: 0 !important; padding: 0 !important;
+  }
+  #pageContent .filters label, #dashboardContent .filters label,
+  #pageContent .toolbar label, #dashboardContent .toolbar label,
+  #pageContent .filter-bar label, #dashboardContent .filter-bar label,
+  #pageContent .filter-panel label, #dashboardContent .filter-panel label,
+  #pageContent .search-filters label, #dashboardContent .search-filters label {
+    display: block !important; width: 100% !important; min-width: 0 !important;
+    margin: 0 !important; font-size: 11px !important; line-height: 1.2 !important;
+    font-weight: bold !important; color: #003366 !important;
+  }
+  #pageContent .filters input, #pageContent .filters select,
+  #pageContent .toolbar input, #pageContent .toolbar select,
+  #pageContent .filter-bar input, #pageContent .filter-bar select,
+  #pageContent .filter-panel input, #pageContent .filter-panel select,
+  #pageContent .search-filters input, #pageContent .search-filters select,
+  #dashboardContent .filters input, #dashboardContent .filters select,
+  #dashboardContent .toolbar input, #dashboardContent .toolbar select,
+  #dashboardContent .filter-bar input, #dashboardContent .filter-bar select,
+  #dashboardContent .filter-panel input, #dashboardContent .filter-panel select,
+  #dashboardContent .search-filters input, #dashboardContent .search-filters select {
+    display: block !important; width: 100% !important; min-width: 0 !important;
+    max-width: 100% !important; box-sizing: border-box !important;
+    font-size: 10px !important; padding: 4px !important; margin: 2px 0 0 !important;
+  }
+  /* Keep rank/personnel blocks visible and aligned like the dashboard */
+  .stat-grid { display: grid !important; grid-template-columns: repeat(4, minmax(0, 1fr)) !important; gap: 6px !important; width: 100% !important; }
+  .stat-card { display: block !important; min-width: 0 !important; min-height: 65px !important; padding: 7px !important; margin: 0 !important; break-inside: avoid !important; box-shadow: none !important; }
+  .stat-card .stat-label { font-size: 15px !important; line-height: 1.15 !important; }
+  .stat-card .stat-num { font-size: 22px !important; margin: 4px 0 !important; }
+  .stat-card .stat-foot { font-size: 10px !important; }
+  .panel { width: 100% !important; max-width: 100% !important; padding: 5px !important; margin: 5px 0 !important; box-shadow: none !important; break-inside: avoid; }
+  .table-wrap { width: 100% !important; max-width: 100% !important; overflow: visible !important; height: auto !important; max-height: none !important; }
+  .rank-summary, .personnel-table { width: 100% !important; min-width: 0 !important; table-layout: auto !important; border-collapse: collapse !important; }
+  .rank-summary th, .rank-summary td, .personnel-table th, .personnel-table td {
+    font-size: 9px !important; padding: 3px !important; white-space: normal !important;
+    overflow-wrap: anywhere !important; color: #000 !important; border: 1px solid #777 !important;
+  }
+  .panel-head h3 { font-size: 14px !important; }
+  tr { break-inside: avoid !important; }
+}
+
 </style>
 </head>
 <body>

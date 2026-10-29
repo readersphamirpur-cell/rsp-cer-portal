@@ -1011,7 +1011,317 @@ font-size: 15px !important;
   .panel-head h3 { font-size: 14px !important; }
   tr { break-inside: avoid !important; }
 }
+/* ===== 1. ऊपर कार्यालय का शीर्षक ===== */
+.topbar .top-title {
+    font-family: "Times New Roman", serif !important;
+    font-size: 24px !important;
+    font-weight: bold !important;
+    text-align: center !important;
+}
 
+/* शीर्षक के नीचे अंग्रेजी लाइन */
+.topbar .top-title small {
+    font-family: "Times New Roman", serif !important;
+    font-size: 13px !important;
+    font-weight: bold !important;
+}
+
+/* ===== 2. RSP HAMIRPUR / Portal Administrator ===== */
+.topbar .user-text,
+.topbar .user-text strong,
+.topbar .user-text small {
+    font-family: "Times New Roman", serif !important;
+    font-weight: bold !important;
+}
+
+.topbar .user-text strong {
+    font-size: 20px !important;
+}
+
+.topbar .user-text small {
+    font-size: 18px !important;
+}
+
+/* ===== 3. Dashboard Overview ===== */
+#pageTitle {
+    font-family: "Times New Roman", serif !important;
+    font-size: 30px !important;
+    font-weight: bold !important;
+    color: #f8061f !important;
+}
+
+/* ===== 4. पीली सूचना वाली पट्टी ===== */
+.notice {
+    font-family: "Times New Roman", serif !important;
+    font-size: 18px !important;
+    font-weight: bold !important;
+    text-align: center !important;
+    color: #1606f8 !important;
+    
+}
+
+/* ===== 5. Main Menu ===== */
+.sidebar .side-label {
+    font-family: "Times New Roman", serif !important;
+    font-size: 25px !important;
+    font-weight: bold !important;
+    color: #ffe36e !important;
+    
+}
+
+/* ===== 6. Dashboard, C.E.R. आदि टैब ===== */
+.sidebar .nav-btn {
+    font-family: "Times New Roman", serif !important;
+    font-size: 20px !important;
+    font-weight: bold !important;
+    
+}
+
+/* ===== 7. Sidebar के सबसे नीचे RSP HAMIRPUR ===== */
+.sidebar .sidebar-foot {
+    margin-top: auto !important;
+    font-family: "Times New Roman", serif !important;
+    font-size: 20px !important;
+    font-weight: bold !important;
+    line-height: 1.6 !important;
+     text-align: center !important;
+}
+
+/* ===== 8. Logout, Clear ===== */
+
+#importBtn,
+#exportBtn,
+#printBtn,
+#cerImportBtn {
+    background-color: #ffe36e !important;
+    color: #f8061e !important;
+    border-color: #e3c44f !important;
+    font-family: "Times New Roman", serif !important;
+    font-size: 20px !important;
+    font-weight: bold !important;
+}
+/* ===== 8. Logout, Clear, Import, Export, Print ===== */
+#logoutBtn{
+    background-color: #f30404 !important;
+    color: #f3f0f0 !important;
+    border-color: #e3c44f !important;
+    font-family: "Times New Roman", serif !important;
+    font-size: 30px !important;
+    font-weight: bold !important;
+}
+/* ===== 8. Logout, Clear, Import, Export, Print ===== */
+
+#clearFilters{
+    background-color: #037e40 !important;
+    color: #ffffff !important;
+    border-color: #f7f8f7 !important;
+    font-family: "Times New Roman", serif !important;
+    font-size: 22px !important;
+    font-weight: bold !important;
+}
+/* Delete बटन */
+button[id*="delete" i],
+button[class*="delete" i],
+.btn-danger {
+    background-color: #f81404 !important;
+    color: #f5f0f0 !important;
+    border-color: #fa0425 !important;
+    font-family: "Times New Roman", serif !important;
+    font-weight: bold !important;
+}
+
+/* ===== 9. Numerical Role-wise Summary ===== */
+/* शीर्षक को लाल, बोल्ड और Times New Roman करें */
+.panel-head h3 {
+    font-family: "Times New Roman", serif !important;
+    font-weight: bold !important;
+    color: #1607ec !important;
+    font-size: 30px !important;
+}
+
+/* ===== 10. टेबल मोबाइल पर टूटने से बचाएँ ===== */
+.table-wrap {
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+}
+
+.table-wrap table {
+    min-width: 760px;
+}
+
+/* ===== 11. प्रिंट में टेबल को सही रखें ===== */
+@media print {
+    .table-wrap {
+        overflow: visible !important;
+    }
+
+    .table-wrap table {
+        min-width: 0 !important;
+        width: 100% !important;
+        table-layout: auto !important;
+    }
+
+    .table-wrap th,
+    .table-wrap td {
+        white-space: normal !important;
+        overflow-wrap: anywhere;
+    }
+}
+/* FIX: Rank-wise Summary full width */
+.rank-summary {
+    width: 100% !important;
+    min-width: 100% !important;
+    table-layout: auto !important;
+}
+
+.panel:has(.rank-summary) {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+.panel:has(.rank-summary) .table-wrap {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    box-sizing: border-box !important;
+}
+/* Header: logo and office title centered */
+.topbar {
+    position: relative !important;
+    justify-content: center !important;
+    text-align: center !important;
+}
+
+.top-title {
+    margin: 0 auto !important;
+    text-align: center !important;
+    justify-content: center !important;
+}
+
+.top-title h1 {
+    text-align: center !important;
+    font-family: "Times New Roman", serif !important;
+    font-size: 40px !important;
+    font-weight: bold !important;
+}
+
+.top-title p {
+    text-align: center !important;
+    font-family: "Times New Roman", serif !important;
+}
+
+/* Sidebar footer: move text to the bottom */
+.sidebar {
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+.sidebar-foot {
+    margin-top: auto !important;
+    padding-bottom: 20px !important;
+    font-family: "Times New Roman", serif !important;
+    font-size: 20px !important;
+    font-weight: bold !important;
+}
+/* Blue header: height adjusts automatically */
+.topbar {
+    height: auto !important;
+    min-height: 100px !important;
+    padding: 15px 20px !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+/* Header title */
+.top-title {
+    height: auto !important;
+    min-height: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+    font-family: "Times New Roman", serif !important;
+}
+
+/* Hindi heading */
+.top-title h1 {
+    font-family: "Times New Roman", serif !important;
+    font-size: 80px !important;
+    font-weight: bold !important;
+    line-height: 1.3 !important;
+    margin: 5px 0 !important;
+}
+
+/* English heading */
+.top-title p {
+    font-family: "Times New Roman", serif !important;
+    font-size: 60px !important;
+    font-weight: bold !important;
+    line-height: 1.3 !important;
+    margin: 5px 0 !important;
+}
+/* FORCE HEADER FONT SIZE */
+.topbar .top-title,
+.topbar .top-title h1,
+.topbar .top-title p {
+    font-family: "Times New Roman", serif !important;
+    text-align: center !important;
+}
+
+.topbar .top-title h1 {
+    font-size: 80px !important;
+    font-weight: 900 !important;
+    line-height: 1.4 !important;
+    margin: 8px 0 !important;
+}
+
+.topbar .top-title p {
+    font-size: 40px !important;
+    font-weight: bold !important;
+    line-height: 1.4 !important;
+    margin: 6px 0 !important;
+}
+
+.topbar {
+    height: auto !important;
+    min-height: 0 !important;
+    padding-top: 15px !important;
+    padding-bottom: 15px !important;
+}
+/* Extra Large Header Font */
+.topbar .top-title h1 {
+    font-family: "Times New Roman", serif !important;
+    font-size: 80px !important;
+    font-weight: 900 !important;
+    line-height: 1.3 !important;
+    margin: 8px 0 !important;
+}
+
+.topbar .top-title p {
+    font-family: "Times New Roman", serif !important;
+    font-size: 60px !important;
+    font-weight: bold !important;
+    line-height: 1.3 !important;
+    margin: 8px 0 !important;
+}
+
+.topbar {
+    height: auto !important;
+    min-height: 0 !important;
+    padding: 18px 20px !important;
+}
+#pageSubtitle {
+    font-family: "Times New Roman", serif !important;
+    font-size: 18px !important;
+    line-height: 1.5 !important;
+    font-weight: 500 !important;
+    color: #e504fa !important;
+    font-weight: bold !important;
+}
 </style>
 </head>
 <body>
@@ -1051,7 +1361,7 @@ font-size: 15px !important;
       <button class="nav-btn" data-tab="notavailable"><span class="ico">◷</span>NOT AVAILABLE</button>
       <button class="nav-btn" data-tab="available"><span class="ico">◉</span>AVAILABLE</button>
       <button class="nav-btn" data-tab="hq"><span class="ico">⌂</span>OFFICE AND LINE</button>
-      <div class="sidebar-foot">RSP HAMIRPUR<br>C.E.R. Personnel Portal<br>Local demonstration build</div>
+      <div class="sidebar-foot">RSP HAMIRPUR<br>C.E.R. Portal<br>2026</div>
     </aside>
     <main class="main">
       <div class="page-head"><div><h1 id="pageTitle">Dashboard Overview</h1><p id="pageSubtitle">Personnel strength and C.E.R. status across police stations.</p></div><div class="actions" id="actionBar"></div></div>

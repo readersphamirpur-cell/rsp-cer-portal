@@ -378,8 +378,41 @@ width: 100px !important;
 .panel:has(table.rank-summary) .panel-head h3 {
     color: #003366 !important;
     font-family: Arial, sans-serif !important;
-    font-size: 15px !important;
+    font-size: 35px !important;
     font-weight: 700 !important;
+}
+/* Responsive tables without shrinking columns */
+.table-wrap {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Rank-wise Summary */
+.rank-summary {
+    width: max-content;
+    min-width: 100%;
+    table-layout: auto;
+    border-collapse: collapse;
+}
+
+.rank-summary th,
+.rank-summary td {
+    white-space: normal;
+}
+
+/* Personnel Details */
+.personnel-table {
+    width: max-content;
+    min-width: 1500px;
+    table-layout: auto;
+    border-collapse: collapse;
+}
+
+.personnel-table th,
+.personnel-table td {
+    white-space: normal;
 }
 </style>
 </head>

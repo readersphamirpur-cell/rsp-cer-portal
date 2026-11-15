@@ -1958,15 +1958,30 @@ function cerSummary(list){let ranks=[1,3,5,6];let html=`<div class="stat-grid">`
 function tablePanel(){let title=currentTab==='cer'?'C.E.R. Personnel':currentTab==='hq'?'Headquarters Personnel':'Personnel Details';return `<div class="panel" id="detailsPanel"><div class="panel-head"><h3>${title}</h3><span id="resultCount" class="badge">0 records</span></div><div class="table-wrap"><table class="personnel-table"><thead><tr><th class="no-print"><input type="checkbox" id="selectAllRecords" aria-label="Select all records"></th><th>S.No.</th><th>Thana / HQ</th><th>PNO</th><th>Rank</th><th>Name</th><th>Role</th><th>Mobile</th><th>Thana Appointment Date</th><th>Previous Appointment (Thana Only)</th><th>C.E.R. 1</th><th>C.E.R. 2</th><th>C.E.R. 3</th><th>Remark</th><th class="no-print">Actions</th></tr></thead><tbody id="detailBody"></tbody></table></div><div class="table-bottom"><span id="tableInfo">Showing records</span><div class="actions no-print"><button class="btn btn-danger" id="deleteSelectedBtn" disabled>Delete Selected</button><button class="btn btn-light" id="resetLinkFilter">Reset link filter</button></div></div></div>`}
 function sortThanaWise(list){
  const order=THANA.map((x,i)=>[String(x).toLowerCase().replace(/[^a-z0-9]/g,''),i]);
- const rankOf=value=>{
-  const shown=displayThana(value);
-  const key=String(shown).toLowerCase().replace(/[^a-z0-9]/g,'');
+ const rankOrder=RANK_SHORT.map((x,i)=>[String(x).toLowerCase().replace(/[^a-z0-9]/g,''),i]);
+ const roleOrder=ROLE_SHORT.map((x,i)=>[String(x).toLowerCase().replace(/[^a-z0-9]/g,''),i]);
+ const norm=value=>String(value??'').toLowerCase().replace(/[^a-z0-9]/g,'');
+ const thanaOf=value=>{
+  const key=norm(displayThana(value));
   const found=order.find(x=>x[0]===key);
   return found?found[1]:999;
  };
+ const rankOf=value=>{
+  const key=norm(rankShort(value));
+  const found=rankOrder.find(x=>x[0]===key);
+  return found?found[1]:999;
+ };
+ const roleOf=value=>{
+  const role=roleShort(value);
+  if(norm(role)==='externalduty')return 999;
+  const found=roleOrder.find(x=>x[0]===norm(role));
+  return found?found[1]:roleOrder.length;
+ };
  return list.slice().sort((a,b)=>{
-  const ta=rankOf(a.hq||a.thana),tb=rankOf(b.hq||b.thana);
-  return ta-tb || String(a.name||'').localeCompare(String(b.name||''),'en');
+  const ta=thanaOf(a.hq||a.thana),tb=thanaOf(b.hq||b.thana);
+  const ra=rankOf(a.rank),rb=rankOf(b.rank);
+  const xa=roleOf(a.role),xb=roleOf(b.role);
+  return ta-tb || ra-rb || xa-xb || String(a.name||'').localeCompare(String(b.name||''),'en');
  });
 }
 function selectedRecordIds(){return Array.from(document.querySelectorAll('.record-select:checked')).map(el=>el.value)}
